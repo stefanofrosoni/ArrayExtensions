@@ -10,13 +10,14 @@ import Foundation
 
 extension Array where Element:Equatable {
 
-    func removeDuplicates() -> [Element] {
+    mutating func removeDuplicates() -> Void {
         var result = [Element]()
-        for value in self {
-            if result.contains(value) == false {
+        for (key, value) in self.enumerated() {
+            if result.contains(value) {
+                self.remove(at: key)
+            } else {
                 result.append(value)
             }
         }
-        return result
     }
 }
