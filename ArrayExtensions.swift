@@ -10,7 +10,7 @@ import Foundation
 
 extension Array where Element:Equatable {
 
-    mutating func removeDuplicates() -> Void {
+    mutating func removeDuplicates() {
         var result = [Element]()
         for (key, value) in self.enumerated() {
             if result.contains(value) {
